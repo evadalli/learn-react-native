@@ -2,9 +2,9 @@ import { View, Text, FlatList, Button, StyleSheet } from "react-native";
 import React, { useContext } from "react";
 import Navigation from "./Navigation";
 import { TodosContext } from "./TodosContext";
-import { disableErrorHandling } from "expo";
+import TodoItem from "./TodoItem";
 
-const HomeScreen= (props) => {
+const HomeScreen= ({ navigation }) => {
   const [todos, setTodos] = useContext(TodosContext);
 
   const deleteTodo = (itemId) => {
@@ -17,20 +17,11 @@ const HomeScreen= (props) => {
         <FlatList
           data={todos}
           renderItem={({ item }) => (
-            <View style={styles.item}>
-              <Text
-                onLongPress={() => {
-                  props.navigation.navigate("EditTodo", { item });
-                }}
-              >
-                {item.title}
-              </Text>
-              <Button title="delete" onPress={() => deleteTodo(item.id)} />
-            </View>
+           <TodoItem item={item} deleteTodo={deleteTodo} navigation={navigation} />
           )}
         ></FlatList>
       </View>
-      <Navigation navigation={props.navigation} />
+      <Navigation navigation={navigation} />
     </View>
   );
 }

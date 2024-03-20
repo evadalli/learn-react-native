@@ -20,13 +20,14 @@ const NewTodoScreen = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.item}>
-        <Text>You can add new todo here</Text>
+        <Text style={styles.text}>You can add new todo here</Text>
         <TextInput
+        style= {styles.text}
           value={newTodo}
           onChangeText={setNewTodo}
           placeholder="new todo"
         />
-        <Button title="AddNewTodo" onPress={addNewTodo} />
+        <Button title="Add" onPress={addNewTodo} />
       </View>
       <Navigation navigation={props.navigation} />
     </View>
@@ -40,8 +41,11 @@ const styles = StyleSheet.create({
   },
   item: {
     flex: 1,
-    
-  }
+  },
+  text: {
+    fontSize: 30,
+    padding: 20,
+  },
 });
 
 export default NewTodoScreen
