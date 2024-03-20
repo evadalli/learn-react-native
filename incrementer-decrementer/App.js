@@ -6,7 +6,7 @@ import Decrementer from './Decrementer';
 
 export default function App() {
 
-  //lifting state app 
+  //lifting state up 
 
   const [counter, setCounter] = useState(0)
 

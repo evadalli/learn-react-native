@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Counter from './Counter';
 import Aggregator from './Aggregator';
 
 export default function App() {
